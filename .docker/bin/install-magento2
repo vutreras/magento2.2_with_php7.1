@@ -39,9 +39,10 @@ npm i
 php -f ./bin/magento deploy:mode:set production
 composer dump-autoload -o
 
-php -f ./bin/magento setup:upgrade
 php -f ./bin/magento setup:di:compile
 php -f ./bin/magento setup:static-content:deploy
+
+cp /var/www/html/pub/errors/local.xml.sample /var/www/html/pub/errors/local.xml
 
 echo "
 ===================== 🚀 Done 🚀 ===================
@@ -53,4 +54,3 @@ echo "
       🔑 Password: admin123
 
 ===================== 🚀 Done 🚀 ==================="
-cp /var/www/html/pub/errors/local.xml.sample /var/www/html/pub/errors/local.xml
