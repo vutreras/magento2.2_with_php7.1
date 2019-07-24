@@ -1,6 +1,6 @@
 #  Magento 2 Docker para desarrollo
 
-### Apache 2.4 + PHP 7.1 + MariaDB
+### PHP 7.1 + MariaDB + Magento 2 installer
 
 ## Requerimientos
 
@@ -17,10 +17,6 @@ Instalar [Docker](https://docs.docker.com/docker-for-windows/install/), [Docker-
 Instalar [Docker](https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/) y [Docker-compose](https://docs.docker.com/compose/install/#install-compose).
 
 ### Como usar
-
-De forma automática se creará una imagen Prestashop con una tienda de pruebas
-
-Para instalar Magento 2, hacer lo siguiente:
 
 ### Construir el contenedor desde cero
 
@@ -56,19 +52,19 @@ Luego de crear la cuenta y crear la llave de acceso debes respaldar "Public Key"
 
 ## Instalación y/o ejecución
 
-### Como instalar magento2
+### Como instalar Magento 2
 
 Para instalar Magento 2, hacer lo siguiente:
 
 Además se puede especificar la versión a instalar (e.j. `install-magento2 2.2.6`).
 
 ```
-./docker-build.sh
+./docker-shell.sh
 install-magento2 2.2.6
 ```
 
 ### Licencia
 
-MIT © 2018
+MIT © 2019
 
 Basado en: [Rafael Corrêa Gomes](https://github.com/rafaelstz/) and [contributors](https://github.com/clean-docker/Magento2/graphs/contributors).
