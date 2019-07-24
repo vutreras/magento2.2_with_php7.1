@@ -1,0 +1,43 @@
+version: '3.1'
+services:
+
+  web:
+    container_name: magento2.2_7.1
+    build: .
+    ports:
+      - 80:80
+    volumes:
+      - ../../src:/var/www/plugin
+      - ~/.composer:/var/www/.composer
+      - ~/.npm:/var/www/.npm
+    environment:
+      PHP_IDE_CONFIG: "serverName=Docker"
+    depends_on:
+      - db
+    links:
+      - db
+    networks:
+      - magento2.2_network_7.1
+
+  db:
+    container_name: mariadb_10.4_7.1
+    image: mariadb:10.4
+    ports:
+     - 3300:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=magento
+      - MYSQL_USER=magento
+      - MYSQL_PASSWORD=magento
+    volumes:
+      - magento2.2_volume_7.1:/var/lib/mysql
+    networks:
+      - magento2.2_network_7.1
+
+networks:
+  magento2.2_network_7.1:
+    driver: bridge
+
+volumes:
+  magento2.2_volume_7.1:
+    driver: local
