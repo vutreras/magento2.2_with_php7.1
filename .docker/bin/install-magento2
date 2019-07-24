@@ -23,22 +23,25 @@ chmod u+w -R ./var ./vendor ./pub/static ./pub/media ./app/etc \
     --timezone=America/Santiago \
     --use-rewrites=1 \
     --backend-frontname=admin \
-    --use-sample-data \
-&& mv ./app/etc/env.php ./app/etc/env.original.php;
-cp -rv /var/www/env.sample.php ./app/etc/env.php;
-php -f ./bin/magento indexer:set-mode schedule;
-cp ~/.composer/auth.json var/composer_home/auth.json \
-&& php -f ./bin/magento sampledata:deploy \
-&& php -f ./bin/magento setup:upgrade \
-&& php -f ./bin/magento indexer:reindex \
-&& php -f ./bin/magento cache:flush;
-mv package.json.sample package.json ; mv Gruntfile.js.sample Gruntfile.js;
-npm i;
-php -f ./bin/magento deploy:mode:set production \
-&& composer dump-autoload -o \
-&& clear
+    --use-sample-data
 
-php -f ./bin/magento setup:upgrade && php -f ./bin/magento setup:di:compile && php -f ./bin/magento setup:static-content:deploy
+mv ./app/etc/env.php ./app/etc/env.original.php
+cp -rv /var/www/env.sample.php ./app/etc/env.php
+php -f ./bin/magento indexer:set-mode schedule
+cp ~/.composer/auth.json var/composer_home/auth.json
+php -f ./bin/magento sampledata:deploy
+php -f ./bin/magento setup:upgrade
+php -f ./bin/magento indexer:reindex
+php -f ./bin/magento cache:flush
+mv package.json.sample package.json
+mv Gruntfile.js.sample Gruntfile.js
+npm i
+php -f ./bin/magento deploy:mode:set production
+composer dump-autoload -o
+
+php -f ./bin/magento setup:upgrade
+php -f ./bin/magento setup:di:compile
+php -f ./bin/magento setup:static-content:deploy
 
 echo "
 ===================== 🚀 Done 🚀 ===================
