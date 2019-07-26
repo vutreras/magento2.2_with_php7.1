@@ -62,10 +62,10 @@ RUN composer global require hirak/prestissimo
 ENV PATH="/var/www/.composer/vendor/bin/:${PATH}"
 
 # Configuring system
-ADD .docker/config/php.ini /usr/local/etc/php/php.ini
-ADD .docker/config/magento.conf /etc/apache2/sites-available/magento.conf
-COPY .docker/bin/* /usr/local/bin/
-COPY .docker/users/* /var/www/
+ADD files/config/php.ini /usr/local/etc/php/php.ini
+ADD files/config/magento.conf /etc/apache2/sites-available/magento.conf
+COPY files/bin/* /usr/local/bin/
+COPY files/users/* /var/www/
 RUN chmod +x /usr/local/bin/*
 RUN ln -s /etc/apache2/sites-available/magento.conf /etc/apache2/sites-enabled/magento.conf
 

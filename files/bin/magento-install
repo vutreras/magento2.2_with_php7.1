@@ -18,7 +18,7 @@ chmod u+w -R ./var ./vendor ./pub/static ./pub/media ./app/etc \
     --admin-email=user@example.com \
     --admin-user=admin \
     --admin-password=admin123 \
-    --language=es_CL \
+    --language=en_US \
     --currency=CLP \
     --timezone=America/Santiago \
     --use-rewrites=1 \

@@ -56,7 +56,7 @@ Luego de crear la cuenta y crear la llave de acceso debes respaldar "Public Key"
 
 Para instalar Magento 2, hacer lo siguiente:
 
-Además se puede especificar la versión a instalar (e.j. `install-magento2 2.2.6`).
+Además se puede especificar la versión a instalar (e.j. `magento-install 2.2.6`).
 
 1- Primero conectarse al contenedor
 ```
@@ -65,7 +65,15 @@ Además se puede especificar la versión a instalar (e.j. `install-magento2 2.2.
 
 2- Instalar la versión deseada de Magento 2
 ```
-install-magento2 2.2.6
+magento-install 2.2.6
+```
+
+3- Regenerar código
+```
+magento-generate-code
+```
+```
+magento-compile
 ```
 
 ### Licencia

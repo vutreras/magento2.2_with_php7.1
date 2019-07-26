@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-php -f ./bin/magento setup:di:compile && php -f ./bin/magento setup:static-content:deploy
